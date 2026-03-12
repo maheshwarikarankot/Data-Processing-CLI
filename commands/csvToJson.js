@@ -7,18 +7,18 @@ export default async (currentDir, inputPath, outputPath) => {
 
   try {
     const csvData = await fs.readFile(resolvedInput, 'utf8');
-    const lines = csvData.split('\n').filter(line => line.trim() !== '');
+    const lines = csvData.split('\n').trim();
     
     if (lines.length === 0) {
       throw new Error('CSV file is empty');
     }
 
-    const headers = lines[0].split(',').map(h => h.trim());
+    const headers = lines[0].split(',').trim();
     const jsonData = lines.slice(1).map(line => {
-      const values = line.split(',').map(v => v.trim());
+      const values = line.split(',').trim();
       const obj = {};
-      headers.forEach((header, idx) => {
-        obj[header] = values[idx] || '';
+      headers.forEach((header, index) => {
+        obj[header] = values[index] || '';
       });
       return obj;
     });

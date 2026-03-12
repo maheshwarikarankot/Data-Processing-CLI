@@ -2,6 +2,7 @@ import readline from 'readline';
 import { up, cd, ls } from './navigation.js';
 import { parseArgs } from './utils/argParser.js';
 import csvToJson from './commands/csvToJson.js';
+import jsonToCsv from './commands/jsonToCsv.js';
 
 export const startRepl = async (initialCwd) => {
     let currentDir = initialCwd;
