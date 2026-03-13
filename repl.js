@@ -3,6 +3,9 @@ import { up, cd, ls } from './navigation.js';
 import { parseArgs } from './utils/argParser.js';
 import csvToJson from './commands/csvToJson.js';
 import jsonToCsv from './commands/jsonToCsv.js';
+import count from './commands/count.js';
+import hash from './commands/hash.js';
+import hashCompare from './commands/hashCompare.js';
 
 export const startRepl = async (initialCwd) => {
     let currentDir = initialCwd;
@@ -108,7 +111,7 @@ const handledCommand = async (line) => {
           break;
 
         case 'hash-compare':
-          {
+          {            
             const parsed = parseArgs(args);
             if (!parsed.input || !parsed.hash) {
               console.log('Invalid input');

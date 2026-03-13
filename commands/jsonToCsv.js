@@ -1,5 +1,4 @@
 import fs from 'fs/promises';
-import { createWriteStream } from 'fs';
 import { resolvePath } from '../utils/pathResolver.js';
 
 export default async (currentDir, inputPath, outputPath) => {
