@@ -6,6 +6,11 @@ import jsonToCsv from './commands/jsonToCsv.js';
 import count from './commands/count.js';
 import hash from './commands/hash.js';
 import hashCompare from './commands/hashCompare.js';
+import encrypt from './commands/encrypt.js';
+import decrypt from './commands/decrypt.js';
+import logStats from './commands/logStats.js';
+
+
 
 export const startRepl = async (initialCwd) => {
     let currentDir = initialCwd;
@@ -32,7 +37,7 @@ const handledCommand = async (line) => {
     }
 
       // Handle Ctrl+C
-  process.on('SIGINT', () => {
+    process.on('SIGINT', () => {
     console.log('\nThank you for using Data Processing CLI!');
     process.exit(0);
   });
@@ -154,7 +159,6 @@ const handledCommand = async (line) => {
               break;
             }
             await logStats(currentDir, parsed.input, parsed.output);
-            console.log('Analysis complete!');
             printCurrentDirectory();
           }
           break;
